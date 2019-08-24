@@ -17,4 +17,10 @@
 		public int[][] getCoefficientMatrix(){
 			return coefficientMatrix;
 		}
+		public void last(int row, int column) {
+			lastMatrix = new int[row][column];
+		}
+		public void coefficient(int row, int column) {
+			coefficientMatrix = new int[row][column];
+		}
 	}
