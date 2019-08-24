@@ -11,4 +11,8 @@
 		public int[][] getSearchedMatrix(){
 			return searchedmatrix;
 		}
-	}
+		
+		public void setSearchedMatrix(int[][] result) {
+			searchedmatrix = result;
+		}
+}
