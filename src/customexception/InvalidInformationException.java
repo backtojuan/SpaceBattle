@@ -1,9 +1,16 @@
-package customexception;
+	package customexception;
 
-@SuppressWarnings("serial")
-public class InvalidInformationException extends Exception
-{
+	public class InvalidInformationException extends Exception{
 
-
-
+		
+	public String getMessage() {
+		
+		String mssg = "";
+		
+		return mssg;
+	}
+		
+		
+		
+		
 }
