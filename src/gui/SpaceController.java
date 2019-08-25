@@ -38,25 +38,41 @@ import model.Venus;
 
 	    @FXML
 	    private TextField columns1;
-
+	    
+	    private Space s;
+	    private Venus v;
 	    @FXML
 	    void findSpaceships(ActionEvent event) {
 
 	    }
-
-	    @FXML
-	    void generateBattleField(ActionEvent event) throws InvalidMatricesException {
-	    	GridPane gridpane = new GridPane();
-	    	GridPane gridpane2 = new GridPane();
-	    	Space s = new Space();
-	    	Venus v = (Venus) s.getVenus();
+	    void generateNoRepeat() {
 	    	int r = Integer.parseInt(rows.getText());
 	    	int c = Integer.parseInt(columns.getText());
 	    	int r1 = Integer.parseInt(rows1.getText());
 	    	int c1 = Integer.parseInt(columns1.getText());
+	    	s = new Space();
+	    	v = (Venus) s.getVenus();
 	    	v.setLast(r, c);
 	    	v.setCoefficient(r1, c1);
 	    	v.fillNonRepeatedMatrix();
+	    }
+	    void generateRepeat() {
+	    	int r = Integer.parseInt(rows.getText());
+	    	int c = Integer.parseInt(columns.getText());
+	    	int r1 = Integer.parseInt(rows1.getText());
+	    	int c1 = Integer.parseInt(columns1.getText());
+	    	s = new Space();
+	    	v = (Venus) s.getVenus();
+	    	v.setLast(r, c);
+	    	v.setCoefficient(r1, c1);
+	    	v.fillRepeatedMatrix();
+	    }
+
+	    @FXML
+	    void generateBattleField(ActionEvent event) throws InvalidMatricesException {
+	    	generateNoRepeat();
+	    	GridPane gridpane = new GridPane();
+	    	GridPane gridpane2 = new GridPane();
 	    	s.generateBattleField();
 	    	for(int i = 0; i<v.getLastMatrix().length; i++) {
 	    		for(int j = 0; j<v.getLastMatrix()[i].length; j++) {
@@ -88,6 +104,7 @@ import model.Venus;
 	    	gridpane2.setGridLinesVisible(true);
 	    	anchor.getChildren().add(gridpane2);
 	    	
-	    }		
+	    }
+	    
 //-----------------------------------------------------------------------------------------------------------------------------------------	
 }
