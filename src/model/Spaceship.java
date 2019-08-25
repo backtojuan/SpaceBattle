@@ -15,12 +15,12 @@
 		private int coordinatey;
 		private int number;
 		
-//-----------------------------------------------------------------------------------------------------------------------------------------
-		/**
-		 * 
-		 * @param x
-		 * @param y
-		 * @param n
+//----------------------------------------------------METHODS FOR THIS CLASS---------------------------------------------------------------
+		/** <b>Spaceship Constructor</b>
+		 * This method allows to create objects of type Spaceship
+		 * @param x the horizontal position of the spaceship
+		 * @param y the vertical position of the spaceship
+		 * @param n the represented value in the matrix
 		 */
 		public Spaceship(int x, int y, int n) {
 			x = coordinatex;
@@ -28,18 +28,38 @@
 			n = number;
 		}
 //-----------------------------------------------------------------------------------------------------------------------------------------
+		/**
+		 * This method returns the horizontal position of the spaceship
+		 * <b>Pre:</b> The Spaceship is not null
+		 * @return the horizontal position
+		 */
 		public int getX() {
 			return coordinatex;
 		}
 //-----------------------------------------------------------------------------------------------------------------------------------------		
+		/**
+		 * This method returns the vertical position of the spaceship
+		 * <b>Pre:</b> The Spaceship is not null
+		 * @return the vertical position
+		 */
 		public int getY() {
 			return coordinatey;
 		}
 //-----------------------------------------------------------------------------------------------------------------------------------------		
+		/**
+		 * This method returns the represented value of the spaceship
+		 * <b>Pre:</b> The Spaceship is not null
+		 * @return the value of the spaceship
+		 */
 		public int getNumber() {
 			return number;
 		}
 //-----------------------------------------------------------------------------------------------------------------------------------------		
+		/**
+		 * This method sets the value of the spaceship
+		 * <b>Pre:</b> The Spaceship is not null
+		 * <b>Post:</b> The value represented by the spaceship was set with no problem
+		 */
 		public void setNumber(int number) {
 			this.number = number;
 		}
