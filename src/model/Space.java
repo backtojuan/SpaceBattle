@@ -1,5 +1,14 @@
+	
 	package model;
 	
+	/**
+	 * 
+	 * @author Lina Acosta Holguin
+	 * @author Lina Salinas Delgado
+	 * @author Maria Ordoñez Ordoñez
+	 * @author Juan Valencia Jaramillo
+	 * This class manage the necessary attributes and methods to create the space as the part of the battlefield
+	 */
 	public class Space {
 		
 		private Venus venus;

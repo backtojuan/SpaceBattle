@@ -4,6 +4,14 @@
 	import java.util.ArrayList;
 	import java.util.List;
 	
+	/**
+	 * 
+	 * @author Lina Acosta Holguin
+	 * @author Lina Salinas Delgado
+	 * @author Maria Ordoñez Ordoñez
+	 * @author Juan Valencia Jaramillo
+	 * This class manage the necessary attributes and methods to create planets
+	 */
 	public class Planet {
 		
 		private String name;
