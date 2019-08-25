@@ -23,11 +23,11 @@
 		 * @param n the represented value in the matrix
 		 */
 		public Spaceship(int x, int y, int n) {
-			x = coordinatex;
-			y = coordinatey;
-			n = number;
+			coordinatex = x;
+			coordinatey = y;
+			number = n;
 		}
-//-----------------------------------------------------------------------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------------------------------------------
 		/**
 		 * This method returns the horizontal position of the spaceship
 		 * <b>Pre:</b> The Spaceship is not null
@@ -36,7 +36,7 @@
 		public int getX() {
 			return coordinatex;
 		}
-//-----------------------------------------------------------------------------------------------------------------------------------------		
+	//-----------------------------------------------------------------------------------------------------------------------------------------		
 		/**
 		 * This method returns the vertical position of the spaceship
 		 * <b>Pre:</b> The Spaceship is not null
@@ -45,7 +45,7 @@
 		public int getY() {
 			return coordinatey;
 		}
-//-----------------------------------------------------------------------------------------------------------------------------------------		
+	//-----------------------------------------------------------------------------------------------------------------------------------------		
 		/**
 		 * This method returns the represented value of the spaceship
 		 * <b>Pre:</b> The Spaceship is not null
@@ -54,7 +54,7 @@
 		public int getNumber() {
 			return number;
 		}
-//-----------------------------------------------------------------------------------------------------------------------------------------		
+	//-----------------------------------------------------------------------------------------------------------------------------------------		
 		/**
 		 * This method sets the value of the spaceship
 		 * <b>Pre:</b> The Spaceship is not null
@@ -62,6 +62,25 @@
 		 */
 		public void setNumber(int number) {
 			this.number = number;
+		}
+	//-----------------------------------------------------------------------------------------------------------------------------------------
+		/**
+		 * This method sets the value of the spaceship
+		 * <b>Pre:</b> The Spaceship is not null
+		 * <b>Post:</b> The value represented by the spaceship was set with no problem
+		 */
+		public void setX(int x) {
+			this.coordinatex = x;
+			
+		}
+	//-----------------------------------------------------------------------------------------------------------------------------------------
+		/**
+		 * This method sets the value of the spaceship
+		 * <b>Pre:</b> The Spaceship is not null
+		 * <b>Post:</b> The value represented by the spaceship was set with no problem
+		 */
+		public void setY(int y) {
+			this.coordinatey = y;
 		}
 //-----------------------------------------------------------------------------------------------------------------------------------------
 }
