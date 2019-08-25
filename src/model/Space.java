@@ -5,8 +5,6 @@
 		private Venus venus;
 		private Mars mars;
 		
-		
-		
 		public Space () {
 			venus = new Venus("Venus");
 			mars = new Mars("Mars");
@@ -19,37 +17,7 @@
 		public Planet getMars() {
 			return mars;
 		}
-		public void fillMatrices(boolean repeat){
-			if(repeat == true) {
-				for (int i=0; i < venus.getLastMatrix().length; i++) {
-					  for (int j=0; j < venus.getLastMatrix()[i].length; j++) {
-						  venus.getLastMatrix()[i][j] = (int) (Math.random()*100+1);
-					  }
-				}
-				for (int i=0; i < venus.getCoefficientMatrix().length; i++) {
-					  for (int j=0; j < venus.getCoefficientMatrix()[i].length; j++) {
-						  venus.getCoefficientMatrix()[i][j] = (int) (Math.random()*9+1);
-					  }
-				}
-			}
-			else {
-				int random = venus.getLastMatrix().length*venus.getLastMatrix()[0].length;
-				for (int i=0; i < venus.getLastMatrix().length; i++) {
-			         for (int j=0; j < venus.getLastMatrix()[i].length; j++) {
-			        	 venus.getLastMatrix()[i][j] = random;
-						random --;
-				      }
-				}
-
-			    int rand = venus.getCoefficientMatrix().length*venus.getCoefficientMatrix()[0].length;
-			    for (int i=0; i < venus.getCoefficientMatrix().length; i++) {
-				    for (int j=0; j < venus.getCoefficientMatrix()[i].length; j++) {
-				    	venus.getCoefficientMatrix()[i][j] = rand;
-						rand --;
-					}
-				}
-			}
-		}
+		
 		public void currentBattle(){
 			int[][] m1 = venus.getLastMatrix();
 			int[][] m2 = venus.getCoefficientMatrix();
@@ -70,10 +38,11 @@
 			}
 			mars.setSearchedMatrix(current);
 		}
+		
 		public void prueba() {
 			venus.last(5, 4);
 			venus.coefficient(4, 3);
-			fillMatrices(false);
+			venus.fillMatrices(false);
 			currentBattle();
 			for(int i = 0; i< venus.getLastMatrix().length; i++) {
 				for(int j = 0; j<venus.getLastMatrix()[i].length;j++) {
