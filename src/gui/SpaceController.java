@@ -41,9 +41,27 @@ import model.Venus;
 	    
 	    private Space s;
 	    private Venus v;
+	    private Mars m;
 	    @FXML
-	    void findSpaceships(ActionEvent event) {
-
+	    void findSpaceships(ActionEvent event) throws InvalidMatricesException {
+	    	m = (Mars) s.getMars();
+	    	s.generateBattleField();
+	    	GridPane gridpane = new GridPane();
+	    	for(int i = 0; i<m.getSearchedMatrix().length; i++) {
+	    		for(int j = 0; j<m.getSearchedMatrix()[i].length; j++) {
+	    			Label label = new Label();
+	    			label.setText("" + m.getSearchedMatrix()[i][j] + "");
+	    			System.out.print(m.getSearchedMatrix()[i][j] + "\t");
+	    			gridpane.setConstraints(label, j, i);
+	    			gridpane.getChildren().add(label);
+	    		}
+	    		System.out.print("\n");
+	    	}
+	    	gridpane.setLayoutX(600);
+	    	gridpane.setLayoutY(200);
+	    	gridpane.setGridLinesVisible(true);
+	    	anchor.getChildren().add(gridpane);
+	    	
 	    }
 	    void generateNoRepeat() {
 	    	int r = Integer.parseInt(rows.getText());
@@ -73,7 +91,6 @@ import model.Venus;
 	    	generateNoRepeat();
 	    	GridPane gridpane = new GridPane();
 	    	GridPane gridpane2 = new GridPane();
-	    	s.generateBattleField();
 	    	for(int i = 0; i<v.getLastMatrix().length; i++) {
 	    		for(int j = 0; j<v.getLastMatrix()[i].length; j++) {
 	    			Label label = new Label();
