@@ -6,11 +6,14 @@ import javafx.event.ActionEvent;
 	import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import model.Mars;
 import model.Space;
+import model.Spaceship;
 import model.Venus;
 //-----------------------------------------------------------------------------------------------------------------------------------------	
 	/**
@@ -47,21 +50,33 @@ import model.Venus;
 	    	m = (Mars) s.getMars();
 	    	s.generateBattleField();
 	    	GridPane gridpane = new GridPane();
+	    	GridPane gridpane2 = new GridPane();
 	    	for(int i = 0; i<m.getSearchedMatrix().length; i++) {
 	    		for(int j = 0; j<m.getSearchedMatrix()[i].length; j++) {
 	    			Label label = new Label();
 	    			label.setText("" + m.getSearchedMatrix()[i][j] + "");
-	    			System.out.print(m.getSearchedMatrix()[i][j] + "\t");
-	    			gridpane.setConstraints(label, j, i);
-	    			gridpane.getChildren().add(label);
+	    			gridpane2.setConstraints(label, j, i);
+	    			gridpane2.getChildren().add(label);
+	    			int n = m.getSearchedMatrix()[i][j];
+	    			if(m.isPrime(n) == true) {
+	    				Spaceship s = new Spaceship(i,j,n);
+	    				System.out.println("Nave n°: " + n + " En las coordenadas (" +  i+ ", " + j + ")");
+	    				String image = "gui/imgs/icon.png";
+	    				Image im = new Image(image);
+	    				ImageView img = new ImageView(im);
+	    				img.setFitHeight(10);
+	    				img.setFitWidth(10);
+	    				gridpane2.setConstraints(img, j, i);
+		    			gridpane2.getChildren().add(img);
+	    				
+	    			}
 	    		}
 	    		System.out.print("\n");
 	    	}
-	    	gridpane.setLayoutX(600);
-	    	gridpane.setLayoutY(200);
-	    	gridpane.setGridLinesVisible(true);
-	    	anchor.getChildren().add(gridpane);
-	    	
+	    	gridpane2.setLayoutX(500);
+	    	gridpane2.setLayoutY(200);
+	    	gridpane2.setGridLinesVisible(true);
+	    	anchor.getChildren().add(gridpane2);
 	    }
 	    void generateNoRepeat() {
 	    	int r = Integer.parseInt(rows.getText());
