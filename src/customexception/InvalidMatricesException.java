@@ -7,11 +7,19 @@
 	 * @author Lina Salinas Delgado
 	 * @author Maria Ordoñez Ordoñez
 	 * @author Juan Valencia Jaramillo
-	 * This class manage the necessary attributes and methods to create exceptions where the user enter wrong information
+	 * This class manage the necessary attributes and methods to create exceptions where the user does not give a valid lenght for the 
+	 * matrices
 	 */
-	public class InvalidInformationException extends Exception{
+	public class InvalidMatricesException extends Exception{
 		
-		private String report;
+		private int column;
+		private int row;
+		
+		
+	public InvalidMatricesException(int c, int r) {
+		column = c;
+		row = r;
+	}
 		
 //----------------------------------------------------------------------------------------------------------------------------------------
 	/**
@@ -21,8 +29,8 @@
 		
 		String mssg = "";
 		
-		if(report.equals(null) || report.equals("")) {
-			mssg += "You cannot generate a battlefield if you havent enter enough information ";
+		if(row!=column) {
+			mssg += "Columns number from first matrix must equals to Rows number from second matrix";
 		}
 		
 		return mssg;

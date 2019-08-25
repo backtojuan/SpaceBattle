@@ -1,5 +1,8 @@
 //-----------------------------------------------------------------------------------------------------------------------------------------
 	package model;
+
+import customexception.InvalidMatricesException;
+
 //-----------------------------------------------------------------------------------------------------------------------------------------
 	/**
 	 * 
@@ -15,20 +18,35 @@
 		private Mars mars;
 	
 //----------------------------------------------------METHODS FOR THIS CLASS---------------------------------------------------------------
+		/**
+		 * 
+		 */
 		public Space () {
 			venus = new Venus("Venus");
 			mars = new Mars("Mars");
 		}
 	//-----------------------------------------------------------------------------------------------------------------------------------------
+		/**
+		 * 
+		 * @return
+		 */
 		public Planet getVenus() {
 			return venus;
 		}
 	//-----------------------------------------------------------------------------------------------------------------------------------------	
+		/**
+		 * 
+		 * @return
+		 */
 		public Planet getMars() {
 			return mars;
 		}
 	//-----------------------------------------------------------------------------------------------------------------------------------------	
-		public void generateBattleField(){
+		/**
+		 * @throws InvalidMatricesException 
+		 * @throws NullPointerException
+		 */
+		public void generateBattleField() throws InvalidMatricesException{
 			
 			int[][] m1 = venus.getLastMatrix();
 			int[][] m2 = venus.getCoefficientMatrix();
@@ -38,11 +56,11 @@
 			int col_m2 = m2[0].length;
 			
 			if (col_m1 != fil_m2) {
-				  throw new RuntimeException("Matrices cannot be multiplied");
+				  throw new InvalidMatricesException(col_m1, fil_m2);
 			}
 			
 			int[][] current = new int[fil_m1][col_m2];
-			System.out.println();
+			
 			for (int i=0; i < current.length; i++) {
 				  for(int j = 0; j<current[i].length; j++) {
 					  for (int k=0; k<col_m1; k++) {
@@ -51,34 +69,7 @@
 				  }
 			}
 			mars.setSearchedMatrix(current);
-		}
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		public void prueba() {
-			venus.setLast(5, 4);
-			venus.setCoefficient(4, 3);
-			venus.fillNonRepeatedMatrix();
-			generateBattleField();
-			for(int i = 0; i< venus.getLastMatrix().length; i++) {
-				for(int j = 0; j<venus.getLastMatrix()[i].length;j++) {
-					System.out.print(venus.getLastMatrix()[i][j] + "\t");
-				}
-				System.out.print("\n");
-			}
-			System.out.print("\n");
-			for(int i = 0; i< venus.getCoefficientMatrix().length; i++) {
-				for(int j = 0; j<venus.getCoefficientMatrix()[i].length;j++) {
-					System.out.print(venus.getCoefficientMatrix()[i][j] + "\t");
-				}
-				System.out.print("\n");
-			}
-			System.out.print("\n");
-			for(int i = 0; i< mars.getSearchedMatrix().length; i++) {
-				for(int j = 0; j<mars.getSearchedMatrix()[i].length;j++) {
-					System.out.print(mars.getSearchedMatrix()[i][j] + "\t");
-				}
-				System.out.print("\n");
-			}
-		}
+		}	
 //-----------------------------------------------------------------------------------------------------------------------------------------
 }
 		
