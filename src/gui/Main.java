@@ -19,19 +19,22 @@
 	public class Main extends Application {
 		
 //----------------------------------------------------METHODS FOR THIS CLASS---------------------------------------------------------------
-	
+		@Override
 		public void start(Stage stage) throws Exception{
 			
 			Parent root = FXMLLoader.load(getClass().getResource("Space.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
+			
 			Image icon = new Image("gui/imgs/icon.png");
 			stage.getIcons().addAll(icon);
 			stage.setTitle("Spaceship Battle!!");
 			
+			stage.centerOnScreen();
 			
 		}
+	//-------------------------------------------------------------------------------------------------------------------------------------
 		
 		public static void main (String args[]) {
 			launch(args);
