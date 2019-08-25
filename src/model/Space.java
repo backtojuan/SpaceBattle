@@ -27,15 +27,19 @@
 			return mars;
 		}
 		
-		public void currentBattle(){
+		public void generateBattleField(){
+			
 			int[][] m1 = venus.getLastMatrix();
 			int[][] m2 = venus.getCoefficientMatrix();
 			int fil_m1 = m1.length;
 			int col_m1 = m1[0].length;
 			int fil_m2 = m2.length;
 			int col_m2 = m2[0].length;
-			if (col_m1 != fil_m2)
+			
+			if (col_m1 != fil_m2) {
 				  throw new RuntimeException("Matrices cannot be multiplied");
+			}
+			
 			int[][] current = new int[fil_m1][col_m2];
 			System.out.println();
 			for (int i=0; i < current.length; i++) {
@@ -47,12 +51,12 @@
 			}
 			mars.setSearchedMatrix(current);
 		}
-		
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		public void prueba() {
 			venus.last(5, 4);
 			venus.coefficient(4, 3);
-			venus.fillMatrices(false);
-			currentBattle();
+			venus.fillNonRepeatedMatrix();
+			generateBattleField();
 			for(int i = 0; i< venus.getLastMatrix().length; i++) {
 				for(int j = 0; j<venus.getLastMatrix()[i].length;j++) {
 					System.out.print(venus.getLastMatrix()[i][j] + "\t");

@@ -1,5 +1,6 @@
-
+//-----------------------------------------------------------------------------------------------------------------------------------------
 	package customexception;
+//-----------------------------------------------------------------------------------------------------------------------------------------
 	/**
 	 * 
 	 * @author Lina Acosta Holguin
@@ -9,9 +10,14 @@
 	 * This class manage the necessary attributes and methods to create exceptions where the user enter wrong information
 	 */
 	public class InvalidInformationException extends Exception{
-
-	
-	public String getMessage(String report) {
+		
+		private String report;
+		
+//----------------------------------------------------------------------------------------------------------------------------------------
+	/**
+	 * This method returns a personalized message for every considered exception case
+	 */
+	public String getMessage() {
 		
 		String mssg = "";
 		
@@ -21,5 +27,5 @@
 		
 		return mssg;
 	}
-	
+//-----------------------------------------------------------------------------------------------------------------------------------------	
 }

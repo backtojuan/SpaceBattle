@@ -17,7 +17,7 @@
 
 //----------------------------------------------------METHODS FOR THIS CLASS---------------------------------------------------------------
 		/**
-		 * Venus Constructor
+		 * <b>Venus Constructor</b> 
 		 * @param n the name of the current venus planet
 		 */
 		public Venus(String n) {
@@ -27,6 +27,8 @@
 	//-------------------------------------------------------------------------------------------------------------------------------------
 		/**
 		 * This method returns the ally that is supporting venus in the spatial battle
+		 * <b>Pre:</b>
+		 * <b>Post:</b>
 		 * @return
 		 */
 		public Planet getAlly() {
@@ -35,6 +37,8 @@
 	//-------------------------------------------------------------------------------------------------------------------------------------
 		/**
 		 * This method returns the known matrix of the last war in which venus participated.
+		 * <b>Pre:</b>
+		 * <b>Post:</b>
 		 * @return
 		 */
 		public int[][] getLastMatrix(){
@@ -43,6 +47,8 @@
 	//-------------------------------------------------------------------------------------------------------------------------------------
 		/**
 		 * This method returns the known matrix of necessary movements to look for the current enemy spaceships
+		 * <b>Pre:</b>
+		 * <b>Post:</b>
 		 * @return
 		 */
 		public int[][] getCoefficientMatrix(){
@@ -51,96 +57,75 @@
 	//-------------------------------------------------------------------------------------------------------------------------------------
 		/**
 		 * This method fill with values the last matrix known for venus
-		 * @param row
-		 * @param column
+		 * <b>Pre:</b>
+		 * <b>Post:</b>
+		 * @param row the desired number of rows that the matrix will have
+		 * @param column the desired number of columns that the matrix will have
 		 */
 		public void last(int row, int column) {
 			lastMatrix = new int[row][column];
 		}
 	//-------------------------------------------------------------------------------------------------------------------------------------
 		/**
-		 * 
-		 * @param row
-		 * @param column
+		 * This method fill with values the movements matrix 
+		 * <b>Pre:</b>
+		 * <b>Post:</b>
+		 * @param row the desired number of rows that the matrix will have
+		 * @param column the desired number of columns that the matrix will have
 		 */
 		public void coefficient(int row, int column) {
 			coefficientMatrix = new int[row][column];
 		}
 	//-------------------------------------------------------------------------------------------------------------------------------------
 		/**
-		 * 
+		 * This method fill the matrices with non repeated elements if the user decided as that
+		 * <b>Pre:</b>
+		 * <b>Post:</b>
 		 */
-		private void checkForNonRepited() {
-			boolean flag = false;
-			int i = 0;
-			int j = 0;
-			int counter = 0;
-			
-			while(!flag) {
-				while(i<lastMatrix.length && j<coefficientMatrix.length) {
-					if(lastMatrix[i][j] == lastMatrix[i+1][j+1]) {
-						 lastMatrix[i][j] = (int) (Math.random()*500+1);
-						 counter++;
-					}
-				}
-				if(counter==0) {
-					flag = true;
-				}
+		public void fillNonRepeatedMatrix() {
+			for (int i=0; i < lastMatrix.length; i++) {
+				  for (int j=0; j < lastMatrix[i].length; j++) {
+					  lastMatrix[i][j] = (int) (Math.random()*100+1);
+					  if(i>0 && j>0) {
+						  if(lastMatrix[i][j] == lastMatrix[i-1][j-1]) {
+							  lastMatrix[i][j] = (int) (Math.random()*100+1);
+						  }
+					  }
+				  }
 			}
-			
-			while(!flag) {
-				while(i<lastMatrix.length && j<coefficientMatrix.length) {
-					if(coefficientMatrix[i][j] == coefficientMatrix[i+1][j+1]) {
-						 coefficientMatrix[i][j] = (int) (Math.random()*500+1);
-						 counter++;
-					}
-				}
-				if(counter==0) {
-					flag = true;
-				}
+			System.out.println();
+			for (int i=0; i < coefficientMatrix.length; i++) {
+				  for (int j=0; j < coefficientMatrix[i].length; j++) {
+					  coefficientMatrix[i][j] = (int) (Math.random()*25+1);
+					  if(i>0 && j>0) {
+						  if(coefficientMatrix[i][j] == coefficientMatrix[i-1][j-1]) {
+							  coefficientMatrix[i][j] = (int) (Math.random()*25+1);
+						  }
+					  }
+				  }
 			}
 		}
 		
 	//-------------------------------------------------------------------------------------------------------------------------------------
 		/**
-		 * 
-		 * @param repeat
+		 * This method fill the matrices with repeated elements if the user decided as that
+		 * <b>Pre:</b>
+		 * <b>Post:</b>
 		 */
-		public void fillMatrices(boolean repeat){
+		public void fillRepeatedMatrix(){
 			
 			//In the case that the user does not need repeated values inside the matrices
-			if(repeat == true) {
 				for (int i=0; i < lastMatrix.length; i++) {
-					  for (int j=0; j < lastMatrix.length; j++) {
-						  lastMatrix[i][j] = (int) (Math.random()*500+1);
+					  for (int j=0; j < lastMatrix[i].length; j++) {
+						  lastMatrix[i][j] = (int) (Math.random()*100+1);
 					  }
 				}
+				System.out.println();
 				for (int i=0; i < coefficientMatrix.length; i++) {
 					  for (int j=0; j < coefficientMatrix[i].length; j++) {
-						  coefficientMatrix[i][j] = (int) (Math.random()*9+1);
+						  coefficientMatrix[i][j] = (int) (Math.random()*10+1);
 					  }
 				}
-				checkForNonRepited();
-			}
-
-			//In the case that the user need repeated values inside the matrices
-			else {
-				int random = lastMatrix.length*lastMatrix[0].length;
-				for (int i=0; i < lastMatrix.length; i++) {
-			         for (int j=0; j < lastMatrix[i].length; j++) {
-			        	 lastMatrix[i][j] = random;
-						random --;
-				      }
-				}
-
-			    int rand = coefficientMatrix.length*coefficientMatrix[0].length;
-			    for (int i=0; i < coefficientMatrix.length; i++) {
-				    for (int j=0; j < coefficientMatrix[i].length; j++) {
-				    	coefficientMatrix[i][j] = rand;
-						rand --;
-					}
-				}
-			}
 		}
 //-----------------------------------------------------------------------------------------------------------------------------------------
 }
