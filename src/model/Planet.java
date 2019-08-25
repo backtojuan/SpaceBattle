@@ -12,7 +12,7 @@
 	 * @author Juan Valencia Jaramillo
 	 * This class manage the necessary attributes and methods to create planets
 	 */
-	public abstract class Planet {
+	public class Planet {
 		
 		private String name;
 		
