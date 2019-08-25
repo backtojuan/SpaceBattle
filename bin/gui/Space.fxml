@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpaceController">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpaceController">
    <children>
       <Label layoutX="43.0" layoutY="76.0" prefHeight="41.0" prefWidth="101.0" text="ROWS" textFill="#e00404">
          <font>
@@ -67,7 +67,7 @@
             <Font name="Book Antiqua" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="441.0" fitWidth="778.0" layoutX="-5.0" layoutY="-6.0" opacity="0.81" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="441.0" fitWidth="778.0" layoutX="-5.0" layoutY="-6.0" opacity="0.58" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imgs/s.gif" />
          </image>
