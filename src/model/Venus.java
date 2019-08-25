@@ -60,7 +60,7 @@
 		 * @param row the desired number of rows that the matrix will have
 		 * @param column the desired number of columns that the matrix will have
 		 */
-		public void last(int row, int column) {
+		public void setLast(int row, int column) {
 			lastMatrix = new int[row][column];
 		}
 	//-------------------------------------------------------------------------------------------------------------------------------------
@@ -71,7 +71,7 @@
 		 * @param row the desired number of rows that the matrix will have
 		 * @param column the desired number of columns that the matrix will have
 		 */
-		public void coefficient(int row, int column) {
+		public void setCoefficient(int row, int column) {
 			coefficientMatrix = new int[row][column];
 		}
 	//-------------------------------------------------------------------------------------------------------------------------------------

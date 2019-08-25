@@ -54,8 +54,8 @@
 		}
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		public void prueba() {
-			venus.last(5, 4);
-			venus.coefficient(4, 3);
+			venus.setLast(5, 4);
+			venus.setCoefficient(4, 3);
 			venus.fillNonRepeatedMatrix();
 			generateBattleField();
 			for(int i = 0; i< venus.getLastMatrix().length; i++) {
