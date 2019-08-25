@@ -8,7 +8,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="C:/Users/Usuario/Documents/eclipse-workspace/libraries/controlsfx-8.40.13.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Usuario/Documents/eclipse-workspace/libraries/jfoenix-8.0.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Documents/eclipse-workspace/SpaceBattle/libraries/controlsfx-8.40.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Documents/eclipse-workspace/SpaceBattle/libraries/jfoenix-8.0.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

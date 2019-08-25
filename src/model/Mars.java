@@ -25,8 +25,7 @@
 		/**
 		 * This method returns the searched matrix of enemy spaceships from mars
 		 * <b>Pre:</b> Mars is not null
-		 * <b>Post:</b>
-		 * @return
+		 * @return the required matrix
 		 */
 		public int[][] getSearchedMatrix(){
 			return searchedmatrix;
@@ -35,8 +34,7 @@
 		/**
 		 * This method sets the obtained matrix from venus as the current matrix of the battlefield
 		 * <b>Pre:</b> Mars is not null
-		 * <b>Post:</b>
-		 * @param result
+		 * @param result the matrix obtained.
 		 */
 		public void setSearchedMatrix(int[][] result) {
 			searchedmatrix = result;
