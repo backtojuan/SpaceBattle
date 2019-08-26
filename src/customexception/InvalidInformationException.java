@@ -13,6 +13,10 @@
 		
 		private String report;
 		
+	public InvalidInformationException(String r) {
+		report = r;
+	}
+		
 //----------------------------------------------------------------------------------------------------------------------------------------
 	/**
 	 * This method returns a personalized message for every considered exception case
@@ -22,7 +26,7 @@
 		String mssg = "";
 		
 		if(report.equals(null) || report.equals("")) {
-			mssg += "You cannot generate a battlefield if you havent enter enough information ";
+			mssg += " You cannot generate a battlefield if you havent enter enough information ";
 		}
 		
 		return mssg;

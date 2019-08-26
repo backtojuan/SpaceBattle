@@ -1,76 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Light.Distant?>
-<?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpaceController">
-   <children>
-      <Label layoutX="43.0" layoutY="76.0" prefHeight="41.0" prefWidth="101.0" text="ROWS" textFill="#e00404">
-         <font>
-            <Font name="Book Antiqua" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="43.0" layoutY="135.0" prefHeight="41.0" prefWidth="131.0" text="COLUMNS" textFill="#e10f0f">
-         <font>
-            <Font name="Book Antiqua" size="24.0" />
-         </font>
-      </Label>
-      <TextField fx:id="rows" layoutX="187.0" layoutY="84.0" prefHeight="25.0" prefWidth="79.0" />
-      <TextField fx:id="columns" layoutX="187.0" layoutY="143.0" prefHeight="25.0" prefWidth="79.0" />
-      <Button layoutX="434.0" layoutY="64.0" mnemonicParsing="false" onAction="#generateBattleField" prefHeight="53.0" prefWidth="241.0" text="Generate Battlefield" textAlignment="CENTER" textFill="#ae0101" underline="true" wrapText="true">
-         <font>
-            <Font name="Bold Italic Art" size="17.0" />
-         </font>
-         <effect>
-            <Lighting>
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant />
-               </light>
-            </Lighting>
-         </effect>
-      </Button>
-      <Button layoutX="434.0" layoutY="128.0" mnemonicParsing="false" onAction="#findSpaceships" prefHeight="53.0" prefWidth="241.0" text="Find Spaceships" textAlignment="CENTER" textFill="#ae0101" underline="true" wrapText="true">
-         <font>
-            <Font name="Bold Italic Art" size="17.0" />
-         </font>
-         <effect>
-            <Lighting>
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant />
-               </light>
-            </Lighting>
-         </effect>
-      </Button>
-      <TextField fx:id="rows1" layoutX="285.0" layoutY="84.0" prefHeight="25.0" prefWidth="79.0" />
-      <TextField fx:id="columns1" layoutX="285.0" layoutY="143.0" prefHeight="25.0" prefWidth="79.0" />
-      <Label layoutX="187.0" layoutY="23.0" prefHeight="41.0" prefWidth="101.0" text="LAST" textFill="#e00404">
-         <font>
-            <Font name="Book Antiqua" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="285.0" layoutY="23.0" prefHeight="41.0" prefWidth="167.0" text="COEFFICIENT" textFill="#e00404">
-         <font>
-            <Font name="Book Antiqua" size="24.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="441.0" fitWidth="778.0" layoutX="-5.0" layoutY="-6.0" opacity="0.58" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imgs/s.gif" />
-         </image>
-      </ImageView>
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpaceController">
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="160.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@imgs/nyam.gif" />
+               </image>
+            </ImageView>
+            <Button mnemonicParsing="false" onAction="#findSpaceships" prefHeight="27.0" prefWidth="127.0" stylesheets="@css/theme%20(black%20labels).css" text="Find Spaceships" underline="true" GridPane.columnIndex="6" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="-60.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Bodoni MT" size="14.0" />
+               </font></Button>
+            <MenuButton mnemonicParsing="false" prefHeight="28.0" prefWidth="108.0" styleClass="button" stylesheets="@css/theme%20(black%20labels).css" text="Choose..." underline="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#generateRepeatedBattleField" text="Repeated" />
+                <MenuItem mnemonicParsing="false" onAction="#generateNonRepeatedBattleField" text="NonRepeated" />
+              </items>
+               <font>
+                  <Font name="Bodoni MT" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="-50.0" />
+               </GridPane.margin>
+            </MenuButton>
+            <Label stylesheets="@css/theme%20(black%20labels).css" text="Last" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Broadway" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="-15.0" />
+               </GridPane.margin>
+            </Label>
+            <Label stylesheets="@css/theme%20(black%20labels).css" text="Coefficient" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Broadway" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="-15.0" />
+               </GridPane.margin>
+            </Label>
+            <Label stylesheets="@css/theme%20(black%20labels).css" text="Rows" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Broadway" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="-30.0" />
+               </GridPane.margin>
+            </Label>
+            <Label stylesheets="@css/theme%20(black%20labels).css" text="Columns" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Broadway" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="-30.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="lastRows" prefHeight="25.0" prefWidth="106.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="-15.0" right="50.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="coeRows" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="-25.0" right="50.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="lastColumns" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="-15.0" right="50.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="coeColumns" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="-25.0" right="50.0" />
+               </GridPane.margin>
+            </TextField>
+         </children>
+      </GridPane>
+   </bottom>
+   <left>
+      <ScrollPane fx:id="lastScrollPane" prefHeight="334.0" prefWidth="247.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <ScrollPane fx:id="coeScrollPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <right>
+      <ScrollPane fx:id="resultScrollpane" prefHeight="336.0" prefWidth="239.0" BorderPane.alignment="CENTER" />
+   </right>
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label stylesheets="@css/theme%20(black%20labels).css" text="SPACESHIP BATTLE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="35.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Bodoni MT" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="87.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@imgs/stars.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="103.0" fitWidth="134.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@imgs/stars.gif" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="135.0" />
+               </GridPane.margin>
+            </ImageView>
+         </children>
+      </GridPane>
+   </top>
+</BorderPane>

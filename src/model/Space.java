@@ -19,7 +19,8 @@ import customexception.InvalidMatricesException;
 	
 //----------------------------------------------------METHODS FOR THIS CLASS---------------------------------------------------------------
 		/**
-		 * 
+		 * <b>Space Constructor</b>
+		 * This method allows to create the space as an scenerio to deliver the battle
 		 */
 		public Space () {
 			venus = new Venus("Venus");
@@ -46,7 +47,7 @@ import customexception.InvalidMatricesException;
 		 * @throws InvalidMatricesException 
 		 * @throws NullPointerException
 		 */
-		public void generateBattleField() throws InvalidMatricesException{
+		public void generateBattleField(){
 			
 			int[][] m1 = venus.getLastMatrix();
 			int[][] m2 = venus.getCoefficientMatrix();
@@ -54,11 +55,7 @@ import customexception.InvalidMatricesException;
 			int col_m1 = m1[0].length;
 			int fil_m2 = m2.length;
 			int col_m2 = m2[0].length;
-			
-			if (col_m1 != fil_m2) {
-				  throw new InvalidMatricesException(col_m1, fil_m2);
-			}
-			
+						
 			int[][] current = new int[fil_m1][col_m2];
 			
 			for (int i=0; i < current.length; i++) {

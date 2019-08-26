@@ -25,14 +25,12 @@
 			Parent root = FXMLLoader.load(getClass().getResource("Space.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.show();
-			
-			
+			stage.setResizable(false);			
 			Image icon = new Image("gui/imgs/icon.png");
 			stage.getIcons().addAll(icon);
 			stage.setTitle("Spaceship Battle!!");
-			
 			stage.centerOnScreen();
+			stage.show();
 			
 		}
 	//-------------------------------------------------------------------------------------------------------------------------------------
