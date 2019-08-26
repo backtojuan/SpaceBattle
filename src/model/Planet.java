@@ -18,7 +18,8 @@
 		
 //----------------------------------------------------METHODS FOR THIS CLASS---------------------------------------------------------------
 		/**
-		 * 
+		 * <b>Planet Constructor</b> 
+		 * This method creates planets as part of the space
 		 * @param n
 		 */
 		public Planet(String n) {
@@ -27,17 +28,18 @@
 		
 	//-----------------------------------------------------------------------------------------------------------------------------------------
 		/**
-		 * 
-		 * @return
+		 * This method returns the name of the current planet
+		 * @return name
 		 */
 		public String getName() {
 			return name;
 		}
 	//-----------------------------------------------------------------------------------------------------------------------------------------	
 		/**
-		 * 
-		 * @param n
-		 * @return
+		 * This method determinates is a number is either prime or not, if it is it means that an spaceship
+		 * is located in the coordinate (x,y)
+		 * @param n the number to be verify
+		 * @return a boolean determinant of the primeness
 		 */
 		public boolean isPrime(int n) {
 			double number = Math.sqrt(n); 

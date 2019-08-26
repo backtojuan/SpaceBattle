@@ -57,25 +57,6 @@ import customexception.InvalidMatricesException;
 			assertNull(m.getSearchedMatrix(), "The Matrix is not null as not expected");
 			
 			
-			//Exception Case
-			int[][] lastexception = new int[6][7];
-			int[][] coefficientexception = new int[10][4];
-			
-			v.setLast(lastexception.length, lastexception[0].length);
-			v.setCoefficient(coefficientexception.length, coefficientexception[0].length);
-			
-			
-			try {
-
-				v.fillRepeatedMatrix();
-				space.generateBattleField();
-				fail();
-				
-			}catch(InvalidMatricesException ime) {
-				assertTrue(lastexception[0].length!=coefficientexception.length);
-			}
-			
-		
 			//Case 1
 			int[][] last = new int[5][3];
 			int[][] coefficient = new int[3][5];
@@ -87,13 +68,8 @@ import customexception.InvalidMatricesException;
 			assertNotNull(v.getCoefficientMatrix(), "The matrix is null as not expected");
 			
 			v.fillRepeatedMatrix();
-			
-				try {
-					space.generateBattleField();
-				}catch(InvalidMatricesException ime) {
-					fail("The matrices are not compatible");
-				}
-				
+			space.generateBattleField();
+							
 			assertNotNull(m.getSearchedMatrix(), "The matrix is null as not expected");
 			
 			assertEquals(5, m.getSearchedMatrix().length, "The rows number is not the expected one");
@@ -117,13 +93,8 @@ import customexception.InvalidMatricesException;
 			assertNotNull(v.getCoefficientMatrix(), "The matrix is null as not expected");
 			
 			v.fillRepeatedMatrix();
-			
-				try {
-					space.generateBattleField();
-				}catch(InvalidMatricesException ime) {
-					fail("The matrices are not compatible");
-				}
-				
+			space.generateBattleField();
+					
 			assertNotNull(m.getSearchedMatrix(), "The matrix is null as not expected");
 			
 			for(int i=0;i<m.getSearchedMatrix().length;i++) {

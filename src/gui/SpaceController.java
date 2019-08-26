@@ -26,7 +26,8 @@ import javafx.scene.control.Label;
 	import javafx.event.ActionEvent;
 	import model.Mars;
 	import model.Space;
-	import model.Venus;
+import model.Spaceship;
+import model.Venus;
 //-----------------------------------------------------------------------------------------------------------------------------------------	
 		/**
 		 * 
@@ -72,7 +73,7 @@ import javafx.scene.control.Label;
 //-----------------------------------------------------------------------------------------------------------------------------------------
 		@FXML
 		/**
-		 * 
+		 * This method initialize the nedeed values before the GUI is launch
 		 */
 		public void initialize() {
 			s = new Space();
@@ -81,20 +82,45 @@ import javafx.scene.control.Label;
 	//-------------------------------------------------------------------------------------------------------------------------------------
 		@FXML
 		/**
-		 * 
-		 * @param event
+		 * This method brings the searched matrix and display it in the GUI
+		 * @param event the event triggered by the user
 		 * @throws InvalidMatricesException
 		 */
 		private void findSpaceships(ActionEvent event) throws InvalidMatricesException {
-		    	m = (Mars) s.getMars();
+			m = (Mars) s.getMars();
+	    	s.generateBattleField();
+	    	GridPane gridpane = new GridPane();
+	    	for(int i = 0; i<m.getSearchedMatrix().length; i++) {
+	    		for(int j = 0; j<m.getSearchedMatrix()[i].length; j++) {
+	    			Button button = new Button();
+	    			button.setText("" + m.getSearchedMatrix()[i][j] + "");
+	    			button.setMaxSize(200.0, 150.0);
+	    			button.setStyle("-fx-background-color : SLATEGRAY");
+	    			GridPane.setConstraints(button, j, i);
+	    			gridpane.getChildren().add(button);
+	    			int n = m.getSearchedMatrix()[i][j];
+	    			if(m.isPrime(n) == true) {
+	    				Spaceship s = new Spaceship(i,j,n);
+	    				System.out.println("Nave n°: " + n + " En las coordenadas (" +  i+ ", " + j + ")");
+	    				String image = "gui/imgs/spaceship.png";
+	    				Image im = new Image(image);
+	    				ImageView img = new ImageView(im);
+	    				img.setFitHeight(10);
+	    				img.setFitWidth(10);
+	    				GridPane.setConstraints(img, j, i);
+		    			gridpane.getChildren().add(img);
+	    			}
+	    		}
+	    		resultScrollpane.setContent(gridpane);
+	    	}
 		    	
 		}
 	 //-------------------------------------------------------------------------------------------------------------------------------------
 
 	    @FXML
 	    /**
-	     * 
-	     * @param event
+	     * This method brings the non repeated battlefield matrices build by the user specifications and display them in the GUI
+	     * @param event the event triggered by the user
 	     */
 	    private void generateNonRepeatedBattleField(ActionEvent event){
 	    	try {
@@ -157,26 +183,7 @@ import javafx.scene.control.Label;
 			    	}
 			    	
 			  lastScrollPane.setContent(lastgridpane);
-			  coeScrollPane.setContent(coegridpane);
-			  
-			  
-			  //Resultant Matrix
-			  s.generateBattleField();
-		    	GridPane gridpane = new GridPane();
-		    	for(int i = 0; i<m.getSearchedMatrix().length; i++) {
-		    		for(int j = 0; j<m.getSearchedMatrix()[i].length; j++) {
-		    			Label label = new Label();
-		    			label.setText("" + m.getSearchedMatrix()[i][j] + "");
-		    			System.out.print(m.getSearchedMatrix()[i][j] + "\t");
-		    			GridPane.setConstraints(label, j, i);
-		    		}
-		    		System.out.print("\n");
-		    	}
-		    	gridpane.setLayoutX(600);
-		    	gridpane.setLayoutY(200);
-		    	gridpane.setGridLinesVisible(true);
-		    	resultScrollpane.setContent(gridpane);
-		    	
+			  coeScrollPane.setContent(coegridpane);		    	
 	    }
 		catch(NullPointerException npe) {
 			  Notifications.create()
@@ -191,8 +198,8 @@ import javafx.scene.control.Label;
 	 //------------------------------------------------------------------------------------------------------------------------------------  
 	    @FXML
 	    /**
-	     * 
-	     * @param event
+	     * This method brings the repeated battlefield matrices build by the user specifications and display them in the GUI
+	     * @param event the event triggered by the user
 	     */
 	    private void generateRepeatedBattleField(ActionEvent event) {
 	    	try {
@@ -252,25 +259,7 @@ import javafx.scene.control.Label;
 			    	} 
 			    	
 			    lastScrollPane.setContent(lastgridpane);
-			    coeScrollPane.setContent(coegridpane);
-			    	
-				//Resultant Matrix
-				  s.generateBattleField();
-			    	GridPane gridpane = new GridPane();
-			    	for(int i = 0; i<m.getSearchedMatrix().length; i++) {
-			    		for(int j = 0; j<m.getSearchedMatrix()[i].length; j++) {
-			    			Label label = new Label();
-			    			label.setText("" + m.getSearchedMatrix()[i][j] + "");
-			    			System.out.print(m.getSearchedMatrix()[i][j] + "\t");
-			    			GridPane.setConstraints(label, j, i);
-			    		}
-			    		System.out.print("\n");
-			    	}
-			    	gridpane.setLayoutX(600);
-			    	gridpane.setLayoutY(200);
-			    	gridpane.setGridLinesVisible(true);
-			    	resultScrollpane.setContent(gridpane);
-			    	
+			    coeScrollPane.setContent(coegridpane);	
 	    	}   	
 	    	catch(NullPointerException npe) {
 	    		Notifications.create()
@@ -285,7 +274,7 @@ import javafx.scene.control.Label;
 	    
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	    /**
-	     * 
+	     * This method sets the non repeated battlefield matrices build by the user specifications
 	     * @throws InvalidMatricesException
 	     * @throws InvalidInformationException
 	     */
@@ -313,7 +302,7 @@ import javafx.scene.control.Label;
 	 
 	 //------------------------------------------------------------------------------------------------------------------------------------
 	    /**
-	     * 
+	     * This method sets the non repeated battlefield matrices build by the user specifications
 	     * @throws InvalidMatricesException
 	     * @throws InvalidInformationException
 	     */

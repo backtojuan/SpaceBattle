@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------------------------------------------------------------
 	package model;
 
-import customexception.InvalidMatricesException;
+	import customexception.InvalidMatricesException;
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
 	/**
@@ -11,7 +11,7 @@ import customexception.InvalidMatricesException;
 	 * @author Maria Ordoñez Ordoñez
 	 * @author Juan Valencia Jaramillo
 	 * This class manage the necessary attributes and methods to create the space as the part of the battlefield
-	 */
+	 */	
 	public class Space {
 		
 		private Venus venus;
@@ -28,22 +28,24 @@ import customexception.InvalidMatricesException;
 		}
 	//-----------------------------------------------------------------------------------------------------------------------------------------
 		/**
-		 * 
-		 * @return
+		 * This method returns the venus associated planet in the space
+		 * @return venus
 		 */
 		public Planet getVenus() {
 			return venus;
 		}
 	//-----------------------------------------------------------------------------------------------------------------------------------------	
 		/**
-		 * 
-		 * @return
+		 * This method returns the mars associated planet in the space
+		 * @return mars
 		 */
 		public Planet getMars() {
 			return mars;
 		}
 	//-----------------------------------------------------------------------------------------------------------------------------------------	
 		/**
+		 * This method calculates the product between the two matrices provided by venus in order to find the enemies spaceship
+		 * in the resultant matrix
 		 * @throws InvalidMatricesException 
 		 * @throws NullPointerException
 		 */
